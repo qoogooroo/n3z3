@@ -1,6 +1,6 @@
 package p0204;
 
-interface Action {
+interface Action{
 	void run();
 	void sleep();
 	void work();
@@ -22,5 +22,6 @@ public class InterfaceTest implements Action{
 
 	@Override
 	public void work() {
+		
 	}
 }

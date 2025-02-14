@@ -1,21 +1,25 @@
 package p0204;
 
-class GrandFather {
-	String name = "Grandfa";
-}
-class Mother extends GrandFather{
-	private int money = 100000; // private는 아무리 상속을 줬다고 해도 다른 클래스에선 사용 불가능
-	int age;
+class GrandFather{
+	String name = "할아버지";
 	void test() {
-		System.out.println("Extend Test");
+		System.out.println("난 할아버지 테스트");
 	}
 }
-public class Extends extends Mother{	// extends(상속,예약어)는 하나만 상속 가능함 둘이상은 안됨
-	String adress = "asdf";
+class Mother extends GrandFather{
+	int money = 100000;
+	int age;
+	void test() {
+		System.out.println("난 엄마 테스트");
+	}
+}
+public class Extends extends Mother{
+	String address = "asdf";
+	void test() {
+		System.out.println("난 그냥 테스트");
+	}
 	public static void main(String[] args) {
-		Extends e = new Extends();
+		GrandFather e = new Extends();
 		e.test();
-		System.out.println(e.age);
-		// System.out.println(e.money);
 	}
 }
