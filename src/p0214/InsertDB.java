@@ -12,13 +12,13 @@ public class InsertDB {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		}catch(Exception e) {
 			e.printStackTrace();
-		}
+		}// Driver
 		String url = "jdbc:mysql://localhost:3306/ezen";
 		String username = "root";
 		String password = "r1r2r3";
 		try {
-			Connection con = DriverManager.getConnection(url, username, password);
-			Statement stmt = con.createStatement();
+			Connection con = DriverManager.getConnection(url, username, password); 
+			Statement stmt = con.createStatement();// statement
 			String sql = "INSERT INTO FOOD_INFO(FI_NAME, FI_PRICE)";
 			sql += "VALUES('참치김밥',2000)";
 			int result = stmt.executeUpdate(sql);//변경된 row 수 리턴
