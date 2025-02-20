@@ -2,8 +2,13 @@ package p0217;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class UserInfoCRUD {
 //select insert update delete
@@ -72,6 +77,28 @@ public class UserInfoCRUD {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+	public static List<Map<String,String>> selectUserInfo(){
+		List<Map<String,String>> users = new ArrayList<>();
+		
+		try {
+			Statement statement = connection.createStatement();
+			String sql = "SELECT UI_NUM, UI_NAME, UI_ID, UI_PWD FROM USER_INFO";
+			ResultSet resultSet = statement.executeQuery(sql);
+			while(resultSet.next()) {
+				Map<String,String> user = new HashMap<>();
+				user.put("UI_NUM", resultSet.getString("UI_NUM"));
+				user.put("UI_NAME", resultSet.getString("UI_NAME"));
+				user.put("UI_ID", resultSet.getString("UI_ID"));
+				user.put("UI_PWD", resultSet.getString("UI_PWD"));
+				users.add(user);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return users;
 	}
 	public static void main(String[] args) {
 //		int result = insertUserInfo("홍길동", "Hong", "r1r2r3");
