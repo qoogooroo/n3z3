@@ -10,7 +10,7 @@ class Base {
 class Derivate extends Base {
 	int x = 7;
 	int getX() {
-		return this.x * 3;
+		return x * 3;
 	}
 }
 
